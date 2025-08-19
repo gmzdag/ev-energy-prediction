@@ -31,16 +31,16 @@ for file in all_files:
     df = pd.read_csv(file, sep=",")
 
     # Eklenecek sütunlar
-    df["speeed_set"] = speed
-    df["load"] = load
-    df["direction"] = direction
-    df["season"] = season
+    df["Average_Velocity"] = speed
+    df["Load"] = load
+    df["Direction"] = direction
+    df["Season"] = season
 
     dfs.append(df)
 
 ev_data = pd.concat(dfs, ignore_index=True)
 
-out_csv = OUT_DIR / "ev_datasetgit .csv"
+out_csv = OUT_DIR / "ev_dataset.csv"
 ev_data.to_csv(out_csv.as_posix(), index=False)
 
 
