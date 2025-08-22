@@ -11,8 +11,7 @@ all_files = sorted(RAW_DIR.glob("*.csv"))
 
 dfs = [] #merge için df
 
-for file in all_files:
-
+for i, file in enumerate(all_files, start=1):
     # Dosya adını al
     filename = os.path.basename(file).replace(".csv","")
 
@@ -31,6 +30,7 @@ for file in all_files:
     df = pd.read_csv(file, sep=",")
 
     # Eklenecek sütunlar
+    df["Experiment_ID"] = "Experiment_"+str(i)
     df["Average_Velocity"] = speed
     df["Load"] = load
     df["Direction"] = direction
